@@ -22,7 +22,13 @@ jobs:
         with:
           python-version: '3.12'
       - run: pip install platformio==6.2.0
+      - name: Check OTA URL and checksum policy
+        run: |
+          g++ -std=c++11 -Wall -Wextra -Werror -Isrc test/ota_policy_test.cpp -o /tmp/ota-policy-test
+          /tmp/ota-policy-test
       - name: Build simulation and hardware firmware
+        env:
+          RELEASE_TAG: ${{ github.event_name == 'release' && github.event.release.tag_name || '' }}
         run: platformio run -e esp32-s3-2 -e esp32-s3-2-hardware
       - name: Package firmware and checksums
         run: python scripts/package_release.py

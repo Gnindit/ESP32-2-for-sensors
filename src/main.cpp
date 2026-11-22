@@ -2,6 +2,7 @@
 
 #include "espnow_helper.h"
 #include "sensor_helper.h"
+#include "web_update.h"
 
 // --- SOFTWARE SENSOR SIMULATION CONFIGURATION ---
 // Set to true to generate synthetic sensor data in software without any physical hardware.
@@ -89,6 +90,7 @@ void setup() {
   SensorHelper::begin(ENABLE_SENSOR_SIMULATION);
 
   EspNowHelper::begin();
+  WebUpdate::begin(ENABLE_SENSOR_SIMULATION);
   SensorHelper::updateFuelLevel();
   SensorHelper::updateRpm();
   SensorHelper::updatePowerMonitor();
@@ -99,6 +101,7 @@ void setup() {
 }
 
 void loop() {
+  WebUpdate::loop();
   const uint32_t now = millis();
 
   if (now - lastFuelSampleMs >= SensorHelper::getFuelSampleIntervalMs()) {
