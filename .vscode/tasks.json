@@ -1,0 +1,51 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "ESP32-2: Build (esp32-s3-2)",
+      "type": "shell",
+      "command": "platformio",
+      "args": [
+        "run",
+        "-e",
+        "esp32-s3-2"
+      ],
+      "group": "build",
+      "problemMatcher": []
+    },
+    {
+      "label": "ESP32-2: Upload (esp32-s3-2)",
+      "type": "shell",
+      "command": "platformio",
+      "args": [
+        "run",
+        "-e",
+        "esp32-s3-2",
+        "-t",
+        "upload"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "ESP32-2: Monitor (esp32-s3-2)",
+      "type": "shell",
+      "command": "platformio",
+      "args": [
+        "device",
+        "monitor",
+        "-e",
+        "esp32-s3-2"
+      ],
+      "problemMatcher": []
+    },
+    {
+      "label": "ESP32-2: Build + Upload (esp32-s3-2)",
+      "dependsOrder": "sequence",
+      "dependsOn": [
+        "ESP32-2: Build (esp32-s3-2)",
+        "ESP32-2: Upload (esp32-s3-2)"
+      ],
+      "problemMatcher": []
+    }
+  ]
+}

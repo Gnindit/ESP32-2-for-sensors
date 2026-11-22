@@ -1,0 +1,9 @@
+; Copy to platformio.local.ini and set your local serial port.
+; PlatformIO can also auto-detect the port if no override is configured.
+[env:esp32-s3-2]
+; upload_port = /dev/ttyUSB0
+; monitor_port = /dev/ttyUSB0
+
+[env:esp32-s3-2-hardware]
+; upload_port = /dev/ttyUSB0
+; monitor_port = /dev/ttyUSB0

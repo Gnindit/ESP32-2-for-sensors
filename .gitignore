@@ -1,0 +1,35 @@
+# Build output, caches and release packages
+.pio/
+.cache/
+.dummy/
+.venv/
+__pycache__/
+*.pyc
+/dist/
+/release/
+*.log
+compile_commands.json
+
+# Machine-specific editor files (share tasks and recommendations only)
+.vscode/*
+!.vscode/tasks.json
+!.vscode/extensions.json
+.idea/
+
+# Local configuration and credentials
+/platformio.local.ini
+.env
+.env.*
+!.env.example
+*_secrets.h
+*_secrets.json
+*.pem
+*.key
+*.p12
+*.pfx
+
+# Desktop files and temporary backups
+.DS_Store
+Thumbs.db
+*~
+*.bak
